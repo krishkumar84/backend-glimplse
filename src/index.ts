@@ -4,7 +4,11 @@ import router from "./router/index";
 import db from "./utils/db";
 
 const app: Express = express();
-app.use(cors());
+
+dotenv.config();
+
+mongoose.set('strictQuery', true);
+app.use(cors({ origin: ['http://localhost:5173', 'https://dashboard.glimpse.net.in/'], credentials: true }));
 app.use(json());
 app.use(urlencoded({ extended: false }));
 
