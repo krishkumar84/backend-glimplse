@@ -11,7 +11,7 @@ const app: Express = express();
 dotenv.config();
 
 mongoose.set('strictQuery', true);
-app.use(cors({ origin: process.env.FRONTEND_PORT, credentials: true }));
+app.use(cors({ origin: ['http://localhost:5173', 'https://dashboard.glimpse.net.in/'], credentials: true }));
 app.use(json());
 app.use(urlencoded({ extended: false }));
 app.use(cookieParser());
