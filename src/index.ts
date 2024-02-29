@@ -1,7 +1,6 @@
 import express, { Express, Response, json, urlencoded } from "express";
 import cors from "cors";
 import router from "./router/index";
-import db from "./utils/db";
 
 const app: Express = express();
 
@@ -19,5 +18,4 @@ app.get("/ping", (_req, res: Response) => {
 
 app.listen(process.env.PORT, () => {
     console.log("✅ server started");
-    db.connect();
 });
