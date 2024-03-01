@@ -63,14 +63,23 @@ const postSheetProcess = async (
       headers.indexOf(column)
     );
 
+    // const newData = jsonArrays.map((record) => {
+    //   const extractedData: CustomRecord = {};
+    //   columnIndices.forEach((index, i) => {
+    //     const value = record[headers[index]];
+    //     extractedData[requiredColumns[i]] =
+    //       value !== undefined && value !== null ? value : "";
+    //   });
+    //   return extractedData;
+    // });
     const newData = jsonArrays.map((record) => {
-      const extractedData: CustomRecord = {};
+      // const extractedData: CustomRecord = {};
       columnIndices.forEach((index, i) => {
         const value = record[headers[index]];
-        extractedData[requiredColumns[i]] =
+        record[requiredColumns[i]] =
           value !== undefined && value !== null ? value : "";
       });
-      return extractedData;
+      return record;
     });
 
     // Validate the data
